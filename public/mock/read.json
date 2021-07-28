@@ -1,0 +1,77 @@
+{
+    "list": [
+        {
+            "submitDate": "2021-10-02",
+            "taskName": "[工作审批通过]:调拨申请单已审批",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-09-02",
+            "taskName": "省公司采购入库通知单已创建",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-09-02",
+            "taskName": "供应商发货通知单已确认:DDDSSSZ0000001001123",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-10-02",
+            "taskName": "[工作审批通过]:调拨申请单已审批",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-09-02",
+            "taskName": "省公司采购入库通知单已创建",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-09-02",
+            "taskName": "供应商发货通知单已确认:DDDSSSZ0000001001123",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-10-02",
+            "taskName": "[工作审批通过]:调拨申请单已审批",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-09-02",
+            "taskName": "省公司采购入库通知单已创建",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-09-02",
+            "taskName": "供应商发货通知单已确认:DDDSSSZ0000001001123",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-10-02",
+            "taskName": "[工作审批通过]:调拨申请单已审批",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-09-02",
+            "taskName": "省公司采购入库通知单已创建",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        },
+        {
+            "submitDate": "2021-09-02",
+            "taskName": "供应商发货通知单已确认:DDDSSSZ0000001001123",
+            "submitPerson": "王小虎",
+            "processType": "read"
+        }
+    ],
+    "isTip": true
+}

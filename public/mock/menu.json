@@ -1,0 +1,49 @@
+{
+    "list": [
+        {
+            "icon": "el-icon-s-home",
+            "index": "/home",
+            "title": "系统首页"
+        },
+        {
+            "icon": "el-icon-s-order",
+            "index": "/baseForm",
+            "title": "基础表单"
+        },
+        {
+            "icon": "el-icon-notebook-2",
+            "index": "/baseTable",
+            "title": "基础表格"
+        },
+        {
+            "icon": "el-icon-box",
+            "index": "/baseTabs",
+            "title": "Tab选项卡"
+        },
+        {
+            "icon": "el-icon-edit-outline",
+            "index": "/richEditor",
+            "title": "富文本"
+        },
+        {
+            "icon": "el-icon-error",
+            "index": "error",
+            "title": "异常页",
+            "subs": [
+                {
+                    "index": "/404",
+                    "title": "404"
+                },
+                {
+                    "index": "/403",
+                    "title": "403"
+                },
+                {
+                    "index": "/500",
+                    "title": "500"
+                }
+            ]
+        }
+        
+    ]
+}
