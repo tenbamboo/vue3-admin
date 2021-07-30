@@ -14,7 +14,7 @@ const routesList = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "Home" */'@/views/base/CommonLayout.vue'),
+    component: () => import(/* webpackChunkName: "Home" */'@/components/layout/CommonLayout.vue'),
     children: [
       {
         path: '/home',
@@ -80,7 +80,23 @@ const routesList = [
         },
         component: () => import(/* webpackChunkName: "404" */'@/views/error/404.vue'),
       },
-      
+      {
+        path: '/draggerDialog',
+        name: 'draggerDialog',
+        meta: {
+          title: '可拖拽Dialog',
+        },
+        component: () => import(/* webpackChunkName: "DraggerDialog" */'@/views/draggable/DraggerDialog.vue'),
+      },
+      {
+        path: '/draggable',
+        name: 'draggable',
+        meta: {
+          title: '可拖拽Demo',
+        },
+        component: () => import(/* webpackChunkName: "Draggable" */'@/views/draggable/Draggable.vue'),
+      },
+
 
 
       

@@ -22,7 +22,7 @@ export default defineComponent({
   setup() {
     const testHtml = ref("");
     // setTimeout(() => {
-      testHtml.value = "<p>😒<br/></p><p><br/></p><p><br/></p><p>哈哈哈</p>";
+      testHtml.value = "<p>😁😀😊😋😎<br/></p><p><br/></p><p><br/></p><p>哈哈哈</p>";
     // }, 3000);
     // const tableList = ref([]);
 

@@ -3,8 +3,9 @@
 </template>
 
 <script>
-import { onMounted, onBeforeUnmount, ref, watch,defineComponent} from "vue";
+import { onMounted, onBeforeUnmount, ref, watch, defineComponent } from "vue";
 import WangEditor from "wangeditor";
+
 export default defineComponent({
   name: "baseRichEditor",
   props: {
@@ -13,28 +14,37 @@ export default defineComponent({
   emits: ["update:modelValue"],
   setup(props, content) {
     const editor = ref();
+    const innerValue = ref("");
     let instance;
     watch(
       () => props.modelValue,
       (val) => {
-        instance.txt.html(val);
+        if (val !== innerValue.value) {
+          setInnerVal(val);
+        }
       }
     );
     onMounted(() => {
       instance = new WangEditor(editor.value);
       Object.assign(instance.config, {
-        uploadImgServer:'/test',
+        uploadImgServer: "/test",
         onchange(newHtml) {
+          innerValue.value = newHtml;
           content.emit("update:modelValue", newHtml);
         },
       });
       instance.create();
-      instance.txt.html(props.modelValue);
+      setInnerVal(props.modelValue);
     });
     onBeforeUnmount(() => {
       instance.destroy();
       instance = null;
     });
+
+    const setInnerVal = (val) => {
+      innerValue.value = val;
+      instance.txt.html(val);
+    };
     return {
       editor,
     };

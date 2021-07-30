@@ -26,6 +26,21 @@
             "title": "富文本"
         },
         {
+            "icon": "el-icon-rank",
+            "index": "dragger",
+            "title": "可拖拽",
+            "subs": [
+                {
+                    "index": "/draggerDialog",
+                    "title": "可拖拽Dialog"
+                },
+                {
+                    "index": "/draggable",
+                    "title": "可拖拽Demo"
+                }
+            ]
+        },
+        {
             "icon": "el-icon-error",
             "index": "error",
             "title": "异常页",
