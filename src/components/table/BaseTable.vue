@@ -1,5 +1,4 @@
 <template>
-  <el-config-provider :locale="locale">
     <el-table border
       v-bind="$attrs"
       v-on="$attrs"
@@ -18,11 +17,9 @@
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"></el-pagination>
     </div>
-  </el-config-provider>
 </template>
 <script>
 import { defineComponent } from "vue";
-import zhCn from "element-plus/lib/locale/lang/zh-cn";
 export default defineComponent({
   name: "DBaseTable",
   props: {
@@ -56,7 +53,6 @@ export default defineComponent({
       handleSizeChange,
       handleCurrentChange,
       props,
-      locale: zhCn,
     };
   },
 });
