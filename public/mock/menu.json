@@ -58,6 +58,17 @@
                     "title": "500"
                 }
             ]
+        },
+        {
+            "icon": "el-icon-set-up",
+            "index": "feature",
+            "title": "功能",
+            "subs": [
+                {
+                    "index": "/watermark",
+                    "title": "水印"
+                }
+            ]
         }
         
     ]

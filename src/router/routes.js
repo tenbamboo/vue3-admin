@@ -96,6 +96,15 @@ const routesList = [
         },
         component: () => import(/* webpackChunkName: "Draggable" */'@/views/draggable/Draggable.vue'),
       },
+      {
+        path: '/watermark',
+        name: 'watermark',
+        meta: {
+          title: '水印',
+        },
+        component: () => import(/* webpackChunkName: "Watermark" */'@/views/feature/Watermark.vue'),
+      },
+      
 
 
 

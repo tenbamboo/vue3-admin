@@ -48,6 +48,7 @@
 import { computed,defineComponent } from "vue";
 import { useStore } from "vuex";
 import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
+import { closeAll } from '@/utils/pageTags/index'
 
 export default defineComponent({
   setup() {
@@ -97,10 +98,10 @@ export default defineComponent({
     });
 
     // 关闭全部标签
-    const closeAll = () => {
-      store.commit("layout/clearTags");
-      router.push("/");
-    };
+    // const closeAll = () => {
+    //   store.commit("layout/clearTags");
+    //   router.push("/");
+    // };
     // 关闭其他标签
     const closeOther = () => {
       const curItem = tagsList.value.filter(
