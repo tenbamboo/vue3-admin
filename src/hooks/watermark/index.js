@@ -2,12 +2,10 @@ import { getCurrentInstance, onBeforeUnmount, shallowRef, unref, ref } from 'vue
 import { addResizeListener, removeResizeListener } from '@/utils/event';
 
 const domSymbol = Symbol('watermark-dom');
-
-
+const watermarkEl = shallowRef();
 
 export function useWatermark() {
-
-    const watermarkEl = shallowRef();
+  
     const id = domSymbol.toString();
     const appendEl = ref(document.body)
     let locked = false;

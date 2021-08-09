@@ -125,22 +125,10 @@ const routesList = [
         },
         component: () => import(/* webpackChunkName: "Intro" */'@/views/demo/intro/Intro.vue'),
       },
-
-
-      
-      
-
-
-
       
     ],
 
   },
-  // {
-  //   path: '/view2',
-  //   name: 'view2',
-  //   component: View2,
-  // },
 ];
 
 export default routesList;

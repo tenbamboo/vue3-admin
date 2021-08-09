@@ -10,7 +10,7 @@
         <i v-else
           class="el-icon-s-unfold"></i>
       </div>
-      <div class="logo">后台管理系统</div>
+      <div class="logo">{{appName}}</div>
     </div>
 
     <div class="headerRight">
@@ -64,6 +64,7 @@ export default defineComponent({
   setup() {
     const userName = 'admin'; // localStorage.getItem('ms_username');
     const message = 2;
+    const appName = import.meta.env.VITE_APP_NAME
 
     const store = useStore();
     const collapse = computed(() => store.state.layout.collapse);
@@ -90,6 +91,7 @@ export default defineComponent({
     };
 
     return {
+      appName,
       userName,
       message,
       collapse,
