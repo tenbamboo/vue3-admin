@@ -5,7 +5,7 @@ import base from './modules/base.js';
 import layout from './modules/layout.js';
 // Vue.use(Vuex);
 
-const store = createStore({
+export const store = createStore({
   modules: {
     base,
     layout,
@@ -13,10 +13,10 @@ const store = createStore({
 });
 
 
-export const setupStore = (app)=>{
+export const setupStore = (app) => {
   app.use(store);
 }
 
-export default{
-  setupStore
+export default {
+  setupStore, store
 }

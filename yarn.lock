@@ -996,6 +996,11 @@ inherits@2:
   resolved "https://registry.npm.taobao.org/inherits/download/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=
 
+intro.js@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.nlark.com/intro.js/download/intro.js-4.1.0.tgz#7e4ae5877df0c452b23d1fd96f2666eb87796b22"
+  integrity sha1-fkrlh33wxFKyPR/ZbyZm64d5ayI=
+
 is-arrayish@^0.2.1:
   version "0.2.1"
   resolved "https://registry.npm.taobao.org/is-arrayish/download/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"

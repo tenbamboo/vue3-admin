@@ -1,45 +1,48 @@
 export default {
   namespaced: true,
   state: {
-    tagsList: [],
+    tabsList: [],
     collapse: false,
   },
   mutations: {
-    delTagsItem(state, data) {
+    updateTabsTitle(state, data) {
+      state.tabsList[data.index].title = data.title
+    },
+    delTabsItem(state, data) {
       state
-        .tagsList
+        .tabsList
         .splice(data.index, 1);
     },
-    setTagsItem(state, data) {
+    setTabsItem(state, data) {
       state
-        .tagsList
+        .tabsList
         .push(data);
     },
-    clearTags(state) {
-      state.tagsList = [];
+    clearTabs(state) {
+      state.tabsList = [];
     },
-    closeTagsOther(state, data) {
-      state.tagsList = data;
+    closeTabsOther(state, data) {
+      state.tabsList = data;
     },
     closeCurrentTag(state, data) {
-      for (let i = 0, len = state.tagsList.length; i < len; i += 1) {
-        const item = state.tagsList[i];
+      for (let i = 0, len = state.tabsList.length; i < len; i += 1) {
+        const item = state.tabsList[i];
         if (item.path === data.$route.fullPath) {
           if (i < len - 1) {
             data
               .$router
-              .push(state.tagsList[i + 1].path);
+              .push(state.tabsList[i + 1].path);
           } else if (i > 0) {
             data
               .$router
-              .push(state.tagsList[i - 1].path);
+              .push(state.tabsList[i - 1].path);
           } else {
             data
               .$router
               .push('/');
           }
           state
-            .tagsList
+            .tabsList
             .splice(i, 1);
           break;
         }

@@ -18,7 +18,7 @@ async function bootstrap() {
     setupDirectives(app);
 
     await router.isReady();
-    app.mount('#app');
+    app.mount('#app',true);
 }
 
 bootstrap()

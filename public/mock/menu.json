@@ -67,6 +67,10 @@
                 {
                     "index": "/watermark",
                     "title": "水印"
+                },
+                {
+                    "index": "/pageTabsDemo",
+                    "title": "标签页操作"
                 }
             ]
         }

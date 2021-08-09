@@ -1,14 +1,14 @@
 <template>
-  <div class="pageTagsContainer"
-    v-if="showTags">
+  <div class="pageTabsContainer"
+    v-if="showTabs">
     <ul>
       <li class="tagItem"
-        v-for="(item,index) in tagsList"
+        v-for="(item,index) in tabsList"
         :class="{'active': isActive(item.path)}"
         :key="index">
         <router-link :to="item.path"
           class="title">{{item.title}}</router-link>
-        <span @click="closeTags(index)">
+        <span @click="closeTabs(index)">
           <i class="el-icon-close"></i>
         </span>
       </li>
@@ -19,7 +19,7 @@
       closable
       @tab-remove="removeTab"
       @tab-click="gotoPage">
-      <el-tab-pane v-for="(item) in tagsList"
+      <el-tab-pane v-for="(item) in tabsList"
         :key="item.path"
         :label="item.title"
         :name="item.path">
@@ -27,7 +27,7 @@
       </el-tab-pane>
     </el-tabs> -->
     <div class="operArea">
-      <el-dropdown @command="handleTags">
+      <el-dropdown @command="handleTabs">
         <el-button size="mini"
           type="primary">
           快捷操作
@@ -45,71 +45,30 @@
 </template>
 
 <script>
-import { computed,defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
-import { closeAll } from '@/utils/pageTags/index'
+import { onBeforeRouteUpdate, useRoute } from "vue-router";
+import { useTabs } from "@/hooks/pageTabs/index";
+
 
 export default defineComponent({
   setup() {
     const route = useRoute();
-    const router = useRouter();
     const isActive = (path) => path === route.fullPath;
 
     const store = useStore();
-    const tagsList = computed(() => store.state.layout.tagsList);
-    const showTags = computed(() => tagsList.value.length > 0);
-
-    // 关闭单个标签
-    const closeTags = (index) => {
-      const delItem = tagsList.value[index];
-      store.commit("layout/delTagsItem", { index });
-      const item = tagsList.value[index]
-        ? tagsList.value[index]
-        : tagsList.value[index - 1];
-      if (item) {
-        if (delItem.path === route.fullPath) {
-          router.push(item.path);
-        }
-      } else {
-        router.push("/");
-      }
-    };
+    const tabsList = computed(() => store.state.layout.tabsList);
+    const showTabs = computed(() => tabsList.value.length > 0);
+    const { closeAll, closeOther, closeTabs, setTabs } = useTabs();
 
     // 设置标签
-    const setTags = (_route) => {
-      const isExist = tagsList.value.some(
-        (item) => item.path === _route.fullPath
-      );
-      if (!isExist) {
-        if (tagsList.value.length >= 8) {
-          store.commit("layout/delTagsItem", { index: 0 });
-        }
-        store.commit("layout/setTagsItem", {
-          name: _route.name,
-          title: _route.meta.title,
-          path: _route.fullPath,
-        });
-      }
-    };
-    setTags(route);
-    onBeforeRouteUpdate((to) => {
-      setTags(to);
-    });
 
-    // 关闭全部标签
-    // const closeAll = () => {
-    //   store.commit("layout/clearTags");
-    //   router.push("/");
-    // };
-    // 关闭其他标签
-    const closeOther = () => {
-      const curItem = tagsList.value.filter(
-        (item) => item.path === route.fullPath
-      );
-      store.commit("layout/closeTagsOther", curItem);
-    };
-    const handleTags = (command) => {
+
+    setTabs(route);
+    onBeforeRouteUpdate((to) => {
+      setTabs(to);
+    });
+    const handleTabs = (command) => {
       if (command === "other") {
         closeOther();
       } else {
@@ -117,26 +76,20 @@ export default defineComponent({
       }
     };
 
-    // 关闭当前页面的标签页
-    // store.commit("closeCurrentTag", {
-    //     $router: router,
-    //     $route: route
-    // });
-
     return {
       isActive,
-      tagsList,
-      showTags,
-      closeTags,
-      handleTags,
+      tabsList,
+      showTabs,
+      closeTabs,
+      handleTabs,
     };
   },
 });
 </script>
 
 <style lang="scss" scoped>
-.pageTagsContainer {
-  position: relative;    
+.pageTabsContainer {
+  position: relative;
   z-index: 1;
   height: 30px;
   overflow: hidden;

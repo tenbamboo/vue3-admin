@@ -1,12 +1,12 @@
 <template>
   <div class="contentContainer">
 
-    <d-page-tags />
+    <d-page-tabs />
     <div class="innerContent">
       <router-view v-slot="{ Component }">
         <transition name="move"
           mode="out-in">
-          <keep-alive :include="tagsList">
+          <keep-alive :include="tabsList">
             <component class="componentContainer"
               :is="Component" />
           </keep-alive>
@@ -19,20 +19,24 @@
 <script>
 import { defineComponent,computed } from "vue";
 import { useStore } from "vuex";
-import DPageTags from "@/components/common/PageTags.vue";
+import DPageTabs from "@/components/common/PageTabs.vue";
 
 export default defineComponent({
   components: {
-    DPageTags,
+    DPageTabs,
   },
   setup() {
     const store = useStore();
-    const tagsList = computed(() =>
-      store.state.layout.tagsList.map((item) => item.name)
+    const tabsList = computed(() =>
+      store.state.layout.tabsList.map((item) => item.name)
     );
+
+
+    //  const _tabsList = computed(() => store.state.layout.tabsList );
+    // const tabsList = computed(() => _tabsList.value.map((item) => item.name) );
     const collapse = computed(() => store.state.layout.collapse);
     return {
-      tagsList,
+      tabsList,
       collapse,
     };
   },

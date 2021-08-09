@@ -12,6 +12,11 @@ const routesList = [
     redirect: '/home',
   },
   {
+    path: '/redirect/:path(.*)',
+    name: 'Redirect',
+    component: () => import(/* webpackChunkName: "Home" */'@/views/Redirect/index.vue'),
+  },
+  {
     path: '/',
     name: 'Home',
     component: () => import(/* webpackChunkName: "Home" */'@/components/layout/CommonLayout.vue'),
@@ -104,6 +109,17 @@ const routesList = [
         },
         component: () => import(/* webpackChunkName: "Watermark" */'@/views/feature/Watermark.vue'),
       },
+      {
+        path: '/pageTabsDemo',
+        name: 'pageTabsDemo',
+        meta: {
+          title: '标签页操作',
+        },
+        component: () => import(/* webpackChunkName: "PageTabsDemo" */'@/views/feature/PageTabsDemo.vue'),
+      },
+
+
+      
       
 
 

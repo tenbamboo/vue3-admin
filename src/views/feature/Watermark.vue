@@ -6,13 +6,14 @@
 </template>
 
 <script>
-import { setWatermark,clearWatermark } from "@/utils/watermark/index";
+import { useWatermark } from "@/hooks/watermark/index";
 import { defineComponent } from "vue";
 export default defineComponent({
   setup() {
+    const { setWatermark, clearWatermark } = useWatermark();
     return {
       setWatermark,
-      clearWatermark
+      clearWatermark,
     };
   },
 });
