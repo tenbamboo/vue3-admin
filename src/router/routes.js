@@ -5,7 +5,7 @@ const routesList = [
   {
     path: '/login',
     name: 'login',
-    component: () => import(/* webpackChunkName: "Login" */'@/views/user/Login.vue'),
+    component: () => import(/* webpackChunkName: "Login" */'@/views/sys/user/Login.vue'),
   },
   {
     path: '/',
@@ -14,7 +14,7 @@ const routesList = [
   {
     path: '/redirect/:path(.*)',
     name: 'Redirect',
-    component: () => import(/* webpackChunkName: "Home" */'@/views/Redirect/index.vue'),
+    component: () => import(/* webpackChunkName: "Redirect" */'@/views/sys/redirect/index.vue'),
   },
   {
     path: '/',
@@ -27,7 +27,7 @@ const routesList = [
         meta: {
           title: '系统首页1',
         },
-        component: () => import(/* webpackChunkName: "View1" */'@/views/View1.vue'),
+        component: () => import(/* webpackChunkName: "View1" */'@/views/demo/View1.vue'),
       },
       {
         path: '/baseForm',
@@ -35,7 +35,7 @@ const routesList = [
         meta: {
           title: '基础表单',
         },
-        component: () => import(/* webpackChunkName: "BaseForm" */'@/views/form/BaseForm.vue'),
+        component: () => import(/* webpackChunkName: "BaseForm" */'@/views/demo/form/BaseForm.vue'),
       },
       {
         path: '/baseTable',
@@ -43,7 +43,7 @@ const routesList = [
         meta: {
           title: '基础表格',
         },
-        component: () => import(/* webpackChunkName: "BaseTable" */'@/views/table/BaseTable.vue'),
+        component: () => import(/* webpackChunkName: "BaseTable" */'@/views/demo/table/BaseTable.vue'),
       },
       {
         path: '/baseTabs',
@@ -51,7 +51,7 @@ const routesList = [
         meta: {
           title: 'Tab选项卡',
         },
-        component: () => import(/* webpackChunkName: "BaseTable" */'@/views/tabs/Index.vue'),
+        component: () => import(/* webpackChunkName: "BaseTable" */'@/views/demo/tabs/Index.vue'),
       },
       {
         path: '/richEditor',
@@ -59,7 +59,7 @@ const routesList = [
         meta: {
           title: '富文本',
         },
-        component: () => import(/* webpackChunkName: "RichEditor" */'@/views/richEditor/Index.vue'),
+        component: () => import(/* webpackChunkName: "RichEditor" */'@/views/demo/richEditor/Index.vue'),
       },
       {
         path: '/500',
@@ -67,7 +67,7 @@ const routesList = [
         meta: {
           title: '500',
         },
-        component: () => import(/* webpackChunkName: "500" */'@/views/error/500.vue'),
+        component: () => import(/* webpackChunkName: "500" */'@/views/sys/error/500.vue'),
       },
       {
         path: '/403',
@@ -75,7 +75,7 @@ const routesList = [
         meta: {
           title: '403',
         },
-        component: () => import(/* webpackChunkName: "403" */'@/views/error/403.vue'),
+        component: () => import(/* webpackChunkName: "403" */'@/views/sys/error/403.vue'),
       },
       {
         path: '/404',
@@ -83,7 +83,7 @@ const routesList = [
         meta: {
           title: '404',
         },
-        component: () => import(/* webpackChunkName: "404" */'@/views/error/404.vue'),
+        component: () => import(/* webpackChunkName: "404" */'@/views/sys/error/404.vue'),
       },
       {
         path: '/draggerDialog',
@@ -91,7 +91,7 @@ const routesList = [
         meta: {
           title: '可拖拽Dialog',
         },
-        component: () => import(/* webpackChunkName: "DraggerDialog" */'@/views/draggable/DraggerDialog.vue'),
+        component: () => import(/* webpackChunkName: "DraggerDialog" */'@/views/demo/draggable/DraggerDialog.vue'),
       },
       {
         path: '/draggable',
@@ -99,7 +99,7 @@ const routesList = [
         meta: {
           title: '可拖拽Demo',
         },
-        component: () => import(/* webpackChunkName: "Draggable" */'@/views/draggable/Draggable.vue'),
+        component: () => import(/* webpackChunkName: "Draggable" */'@/views/demo/draggable/Draggable.vue'),
       },
       {
         path: '/watermark',
@@ -107,7 +107,7 @@ const routesList = [
         meta: {
           title: '水印',
         },
-        component: () => import(/* webpackChunkName: "Watermark" */'@/views/feature/Watermark.vue'),
+        component: () => import(/* webpackChunkName: "Watermark" */'@/views/demo/feature/Watermark.vue'),
       },
       {
         path: '/pageTabsDemo',
@@ -115,7 +115,15 @@ const routesList = [
         meta: {
           title: '标签页操作',
         },
-        component: () => import(/* webpackChunkName: "PageTabsDemo" */'@/views/feature/PageTabsDemo.vue'),
+        component: () => import(/* webpackChunkName: "PageTabsDemo" */'@/views/demo/feature/PageTabsDemo.vue'),
+      },
+      {
+        path: '/introDemo',
+        name: 'pageTabsDemo',
+        meta: {
+          title: '引导页',
+        },
+        component: () => import(/* webpackChunkName: "IntroDemo" */'@/views/demo/feature/IntroDemo.vue'),
       },
 
 
