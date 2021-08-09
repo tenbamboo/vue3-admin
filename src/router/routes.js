@@ -118,12 +118,12 @@ const routesList = [
         component: () => import(/* webpackChunkName: "PageTabsDemo" */'@/views/demo/feature/PageTabsDemo.vue'),
       },
       {
-        path: '/introDemo',
-        name: 'pageTabsDemo',
+        path: '/intro',
+        name: 'intro',
         meta: {
           title: '引导页',
         },
-        component: () => import(/* webpackChunkName: "IntroDemo" */'@/views/demo/feature/IntroDemo.vue'),
+        component: () => import(/* webpackChunkName: "Intro" */'@/views/demo/intro/Intro.vue'),
       },
 
 

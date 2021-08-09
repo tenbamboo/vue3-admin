@@ -73,6 +73,11 @@
                     "title": "标签页操作"
                 }
             ]
+        },
+        {
+            "icon": "el-icon-help",
+            "index": "/intro",
+            "title": "引导页"
         }
         
     ]
