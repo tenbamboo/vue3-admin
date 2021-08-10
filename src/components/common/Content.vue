@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import { defineComponent,computed } from "vue";
+import { defineComponent, computed } from "vue";
 import { useStore } from "vuex";
 import DPageTabs from "@/components/common/PageTabs.vue";
 
@@ -31,9 +31,6 @@ export default defineComponent({
       store.state.layout.tabsList.map((item) => item.name)
     );
 
-
-    //  const _tabsList = computed(() => store.state.layout.tabsList );
-    // const tabsList = computed(() => _tabsList.value.map((item) => item.name) );
     const collapse = computed(() => store.state.layout.collapse);
     return {
       tabsList,
@@ -49,7 +46,7 @@ export default defineComponent({
   .innerContent {
     width: 100%;
     height: 100%;
-    padding: 10px 10px 50px ;
+    padding: 10px 10px 50px;
     overflow-y: auto;
     box-sizing: border-box;
     background: #f0f0f0;

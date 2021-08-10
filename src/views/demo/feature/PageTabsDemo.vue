@@ -5,6 +5,8 @@
       <el-button @click="closeOther">关闭其他</el-button>
       <el-button @click="closeTabs">关闭当前页</el-button>
       <el-button @click="refreshPage">刷新当前页</el-button>
+      <el-button @click="closeJumpPage">关闭当前页，并跳转到某一个页</el-button>
+      <el-button @click="closeBackPage">关闭当前页，并跳转到上一页</el-button>
 
     </el-row>
     <el-row>
@@ -23,23 +25,33 @@
 <script>
 import { defineComponent, ref, onMounted } from "vue";
 import { useTabs } from "@/hooks/pageTabs/index";
-// import { closeAll, closeOther, closeTags } from "@/hooks/pageTags/index";
+// import { closeAll, closeOther, closeTags } from "@/hooks/pageTags/index";\
+import { useRouter } from "vue-router";
 export default defineComponent({
   setup() {
     const {
       closeAll,
       closeOther,
       closeTabs,
+      closeCurrnetTab,
       setTitle,
       refreshPage,
     } = useTabs();
     const title = ref("");
-
-    function setTabTitle() {
+    const router = useRouter();
+    
+    const setTabTitle = () => {
       if (title.value) {
         setTitle(title.value);
       }
-    }
+    };
+    const closeJumpPage = () => {
+      closeCurrnetTab("/");
+    };
+    const closeBackPage = () => {
+      router.back();
+      closeCurrnetTab();
+    };
     onMounted(() => {
       console.log("onMounted");
     });
@@ -50,6 +62,8 @@ export default defineComponent({
       closeTabs,
       setTabTitle,
       refreshPage,
+      closeJumpPage,
+      closeBackPage,
       title,
     };
   },

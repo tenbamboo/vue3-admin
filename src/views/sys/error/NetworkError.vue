@@ -1,9 +1,8 @@
 <template>
-  <div class="error404Container">
-    <img src="/static/images/404.png"
-      class="bg" />
-    <p class="title">404</p>
-    <p class="info">抱歉，您访问的页面不存在。</p>
+  <div class="errorNetworkContainer">
+    <i class="el-icon el-icon-error" />
+    <p class="title">网络错误</p>
+    <p class="info">抱歉，您的网络连接已断开，请检查您的网络！</p>
     <div>
       <el-button size="medium"
         type="primary"
@@ -23,13 +22,13 @@ import { useTabs } from "@/hooks/pageTabs/index";
 export default defineComponent({
   setup() {
     const router = useRouter();
-    const { closeCurrnetTab } = useTabs();
+    const { closeTabs } = useTabs();
     const gotoIndex = () => {
-      closeCurrnetTab("/");
+      closeTabs("/");
     };
     const gotoBack = () => {
       router.back();
-      closeCurrnetTab();
+      closeTabs();
     };
     return {
       gotoIndex,
@@ -39,12 +38,13 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-.error404Container {
+.errorNetworkContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .bg {
-    width: 250px;
+  .el-icon {
+    font-size: 70px;
+    color: #f56c6c;
   }
   .title {
     font-size: 30px;

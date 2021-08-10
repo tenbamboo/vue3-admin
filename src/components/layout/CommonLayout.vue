@@ -12,8 +12,8 @@
 import DHeader from "@/components/common/Header.vue";
 import DMenuBar from "@/components/common/MenuBar.vue";
 import DContent from "@/components/common/Content.vue";
-import { ref, defineComponent } from "vue";
-import { fetchMenuData } from "@/api/mock";
+import { computed, defineComponent } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   components: {
@@ -22,10 +22,8 @@ export default defineComponent({
     DContent,
   },
   setup() {
-    const menuList = ref([]);
-    fetchMenuData().then((res) => {
-      menuList.value = res.list;
-    });
+    const store = useStore();
+    const menuList = computed(() => store.state.permission.menuList);
     return {
       menuList,
     };

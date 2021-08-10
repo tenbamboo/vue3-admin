@@ -4,6 +4,8 @@ import { setupRouter,router } from './router';
 import { setupStore } from './store';
 import { setupDirectives } from './directives';
 import { setupElementUI } from './components/elementUI';
+import { setupRouterGuard } from './router/guard/index';
+
 
 import 'normalize.css';
 
@@ -16,6 +18,8 @@ async function bootstrap() {
     setupRouter(app);
     setupStore(app);
     setupDirectives(app);
+    setupRouterGuard(router);
+
 
     await router.isReady();
     app.mount('#app',true);

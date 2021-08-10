@@ -56,7 +56,16 @@
                 {
                     "index": "/500",
                     "title": "500"
+                },
+                {
+                    "index": "/networkError",
+                    "title": "网络错误"
+                },
+                {
+                    "index": "/errorDemo",
+                    "title": "模拟异常页"
                 }
+
             ]
         },
         {

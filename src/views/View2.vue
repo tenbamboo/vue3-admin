@@ -21,7 +21,6 @@
 
 <script setup>
 import { ref } from "vue";
-import HelloWorld from "../components/HelloWorld.vue";
 
 let baseUrl = ref("");
 baseUrl = import.meta.env.VITE_APP_TITLE;

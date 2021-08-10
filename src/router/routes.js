@@ -1,5 +1,4 @@
-
-// const View2 = () => import('@/views/View2.vue');
+import NetworkError from '@/views/sys/error/NetworkError.vue'
 
 const routesList = [
   {
@@ -27,7 +26,7 @@ const routesList = [
         meta: {
           title: '系统首页1',
         },
-        component: () => import(/* webpackChunkName: "View1" */'@/views/demo/View1.vue'),
+        component: () => import(/* webpackChunkName: "View1" */'@/views/View1.vue'),
       },
       {
         path: '/baseForm',
@@ -61,29 +60,14 @@ const routesList = [
         },
         component: () => import(/* webpackChunkName: "RichEditor" */'@/views/demo/richEditor/Index.vue'),
       },
+
       {
-        path: '/500',
-        name: '500',
+        path: '/errorDemo',
+        name: 'errorDemo',
         meta: {
-          title: '500',
+          title: '模拟异常页',
         },
-        component: () => import(/* webpackChunkName: "500" */'@/views/sys/error/500.vue'),
-      },
-      {
-        path: '/403',
-        name: '403',
-        meta: {
-          title: '403',
-        },
-        component: () => import(/* webpackChunkName: "403" */'@/views/sys/error/403.vue'),
-      },
-      {
-        path: '/404',
-        name: '404',
-        meta: {
-          title: '404',
-        },
-        component: () => import(/* webpackChunkName: "404" */'@/views/sys/error/404.vue'),
+        component: () => import(/* webpackChunkName: "ErrorDemo" */'@/views/demo/error/ErrorDemo.vue'),
       },
       {
         path: '/draggerDialog',
@@ -125,7 +109,39 @@ const routesList = [
         },
         component: () => import(/* webpackChunkName: "Intro" */'@/views/demo/intro/Intro.vue'),
       },
-      
+      {
+        path: '/500',
+        name: '500',
+        meta: {
+          title: '500',
+        },
+        component: () => import(/* webpackChunkName: "500" */'@/views/sys/error/500.vue'),
+      },
+      {
+        path: '/403',
+        name: '403',
+        meta: {
+          title: '403',
+        },
+        component: () => import(/* webpackChunkName: "403" */'@/views/sys/error/403.vue'),
+      },
+      {
+        path: '/404',
+        name: '404',
+        meta: {
+          title: '404',
+        },
+        component: () => import(/* webpackChunkName: "404" */'@/views/sys/error/404.vue'),
+      },
+      {
+        path: '/networkError',
+        name: 'networkError',
+        meta: {
+          title: '网络错误',
+        },
+        component: NetworkError,
+      },
+
     ],
 
   },

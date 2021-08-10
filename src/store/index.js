@@ -3,12 +3,15 @@
 import { createStore } from 'vuex';
 import base from './modules/base.js';
 import layout from './modules/layout.js';
+import permission from './modules/permission.js';
+
 // Vue.use(Vuex);
 
 export const store = createStore({
   modules: {
     base,
     layout,
+    permission,
   },
 });
 

@@ -31,15 +31,41 @@ export function useTabs() {
         store.commit("layout/closeTabsOther", [getCurrentRoute()]);
     };
 
-    const closeTabs = (index) => {
+    const closeCurrnetTab = (redirectUrl) => {
         const tabList = tabsList.value
-        if (isNaN(index)) {
-            index = getCurrentRouteIndex()
-        }
+
+        const index = getCurrentRouteIndex()
 
 
         const delItem = tabList[index];
         store.commit("layout/delTabsItem", { index });
+        if (!redirectUrl) {
+            const item = tabList[index]
+                ? tabList[index]
+                : tabList[index - 1];
+            if (item) {
+                if (delItem.path === route.fullPath) {
+                    router.push(item.path);
+                }
+            } else {
+                router.push(defaultPath);
+            }
+        } else {
+            router.push(redirectUrl);
+        }
+
+    };
+
+    const closeTabs = (index) => {
+        const tabList = tabsList.value
+
+        if (isNaN(index)) {
+            index = getCurrentRouteIndex()
+        }
+
+        const delItem = tabList[index];
+        store.commit("layout/delTabsItem", { index });
+        // if (!redirectUrl) {
         const item = tabList[index]
             ? tabList[index]
             : tabList[index - 1];
@@ -50,6 +76,10 @@ export function useTabs() {
         } else {
             router.push(defaultPath);
         }
+        // } else {
+        //     router.push(redirectUrl);
+        // }
+
     };
     const setTabs = (_route) => {
         const tabList = tabsList.value
@@ -76,10 +106,7 @@ export function useTabs() {
 
     const refreshPage = async () => {
         closeTabs()
-
-
         const redo = useRedo(router);
-
         try {
             await redo();
         } catch (e) {
@@ -91,7 +118,7 @@ export function useTabs() {
 
 
     return {
-        closeAll, closeOther, closeTabs, setTabs, setTitle, refreshPage
+        closeAll, closeOther, closeTabs, setTabs, setTitle, refreshPage,closeCurrnetTab
     }
 
 }
