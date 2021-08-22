@@ -102,6 +102,15 @@ const routesList = [
         component: () => import(/* webpackChunkName: "PageTabsDemo" */'@/views/demo/feature/PageTabsDemo.vue'),
       },
       {
+        path: '/jsonFormDemo',
+        name: 'jsonFormDemo',
+        meta: {
+          title: 'jsonForm演示',
+        },
+        component: () => import(/* webpackChunkName: "PageTabsDemo" */'@/views/demo/feature/JsonFormDemo.vue'),
+      },
+      
+      {
         path: '/intro',
         name: 'intro',
         meta: {

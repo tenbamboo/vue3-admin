@@ -8,11 +8,18 @@ export const fetchTableData = query => {
     });
 };
 
-export const fetchMenuData = query => {
+export const fetchMenuData = userInfo => {
     return request({
         url: 'mock/menu.json',
         method: 'get',
-        params: query
+        params: userInfo
+    }).then((res) => {
+        // DEMO 使用，正常逻辑应在后端处理
+        if (userInfo.userRole.includes('root')) {
+            return res.rootMenu
+        } else if (userInfo.userRole.includes('employe')) {
+            return res.employeMenu
+        }
     });
 };
 
@@ -31,9 +38,18 @@ export const fetchReadData = query => {
     });
 };
 
+export const fetchLoginUserData = query => {
+    return request({
+        url: 'mock/user.json',
+        method: 'get',
+        params: query
+    }).then(res => res.list.find(item => item.loginName === query.loginName));
+};
+
 export default {
     fetchTableData,
     fetchMenuData,
     fetchProcessData,
-    fetchReadData
+    fetchReadData,
+    fetchLoginUserData
 }

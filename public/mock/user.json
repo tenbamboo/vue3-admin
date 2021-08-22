@@ -1,0 +1,23 @@
+{
+    "list": [
+        {
+            "userId": "1001",
+            "userName": "管理员",
+            "loginName": "admin",
+            "password": "123123",
+            "userRole": [
+                "admin",
+                "root"
+            ]
+        },
+        {
+            "submitDate": "1002",
+            "userName": "员工小王",
+            "loginName": "user1",
+            "password": "123123",
+            "userRole": [
+                "employe"
+            ]
+        }
+    ]
+}

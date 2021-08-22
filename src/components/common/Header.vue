@@ -19,7 +19,7 @@
         <el-tooltip effect="dark"
           :content="message?`有${message}条未读消息`:`我的待办`"
           placement="bottom">
-          <router-link to="/myTodo">
+          <router-link to="/baseTabs">
             <i class="el-icon-bell"></i>
           </router-link>
         </el-tooltip>
@@ -54,23 +54,23 @@
   </div>
 </template>
 <script>
-import { computed, onMounted,defineComponent } from 'vue';
-import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
+import { computed, onMounted, defineComponent } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 // import { createNamespacedHelpers } from 'vuex'
 
 // const { mapState, mapActions,mapMutations } = createNamespacedHelpers('some/nested/module')
 export default defineComponent({
   setup() {
-    const userName = 'admin'; // localStorage.getItem('ms_username');
-    const message = 2;
-    const appName = import.meta.env.VITE_APP_NAME
-
     const store = useStore();
     const collapse = computed(() => store.state.layout.collapse);
+    const userName = computed(() => store.state.base.currentUserInfo.userName);
+    const message = 2;
+    const appName = import.meta.env.VITE_APP_NAME;
+
     // 侧边栏折叠
     const collapseChage = () => {
-      store.commit('layout/handleCollapse', !collapse.value);
+      store.commit("layout/handleCollapse", !collapse.value);
     };
 
     onMounted(() => {
@@ -81,12 +81,13 @@ export default defineComponent({
 
     // 用户名下拉菜单选择事件
     const router = useRouter();
-    const handleCommand = (command) => {
-      if (command === 'loginout') {
-        localStorage.removeItem('ms_username');
-        router.push('/login');
-      } else if (command === 'user') {
-        router.push('/user');
+    const handleCommand = async (command) => {
+      if (command === "loginout") {
+        store.commit("base/logoutCurrentUser");
+        store.commit("layout/clearTabs");
+        router.replace("/login");
+      } else if (command === "user") {
+        router.push("/user");
       }
     };
 

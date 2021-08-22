@@ -19,15 +19,18 @@
 </template>
 <script>
 import { useRouter } from "vue-router";
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
+import { useTabs } from "@/hooks/pageTabs/index";
 export default defineComponent({
   setup() {
     const router = useRouter();
+    const { closeCurrnetTab } = useTabs();
     const gotoIndex = () => {
-      router.push("/");
+      closeCurrnetTab("/");
     };
     const gotoBack = () => {
       router.back();
+      closeCurrnetTab();
     };
     return {
       gotoIndex,

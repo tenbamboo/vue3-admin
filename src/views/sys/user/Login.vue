@@ -12,12 +12,12 @@
         :model="param"
         label-width="0px">
 
-        <el-form-item prop="userName">
-          <el-input v-model="param.userName"
+        <el-form-item prop="loginName">
+          <el-input v-model="param.loginName"
             @keyup.enter="submitForm()">
 
             <template #prepend>
-                <i class="el-icon-user"></i>
+              <i class="el-icon-user"></i>
             </template>
           </el-input>
         </el-form-item>
@@ -35,7 +35,7 @@
             class="loginBtn"
             @click="submitForm">登录</el-button>
         </el-form-item>
-        <p class="login-tips">Tips : 用户名和密码随便填。</p>
+        <p class="login-tips">Tips : 有2个用户（admin、user1）,密码随便填。</p>
       </el-form>
     </div>
 
@@ -43,44 +43,61 @@
 </template>
 
 <script>
-import { ref, reactive,defineComponent } from 'vue';
-// import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
-import { ElMessage } from 'element-plus';
+import { ref, reactive, defineComponent, onMounted } from "vue";
+import { useStore } from "vuex";
+import { useRouter, useRoute } from "vue-router";
+import { ElMessage } from "element-plus";
+import { fetchLoginUserData } from "@/api/mock.js";
 
 export default defineComponent({
   setup() {
+    const store = useStore();
     const router = useRouter();
+    const route = useRoute();
     const param = reactive({
-      userName: 'admin',
-      password: '123123',
+      loginName: "admin",
+      password: "123123",
     });
 
     const rules = {
-      userName: [
+      loginName: [
         {
           required: true,
-          message: '请输入用户名',
-          trigger: 'blur',
+          message: "请输入用户名",
+          trigger: "blur",
         },
       ],
-      password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
-    };
-    const loginForm = ref(null);
-    const submitForm = () => {
-      loginForm.value.validate((valid) => {
-        if (valid) {
-          ElMessage.success('登录成功');
-          localStorage.setItem('ms_username', param.username);
-          router.push('/');
-        } else {
-          ElMessage.error('登录成功');
-        }
-      });
+      password: [{ required: true, message: "请输入密码", trigger: "blur" }],
     };
 
-    // const store = useStore();
-    // store.commit('clearTags');
+    const loginForm = ref(null);
+
+    const submitForm = async () => {
+      await loginForm.value.validate();
+
+      const user = await fetchLoginUserData(param);
+      if (user) {
+        ElMessage.success("登录成功");
+        store.commit("base/setCurrentUserInfo", user);
+        await store.dispatch("permission/getMenuList", user);
+        gotoPage();
+      } else {
+        ElMessage.error("用户名或密码错误");
+      }
+    };
+    const gotoPage = () => {
+      if (route.query.redirectUrl) {
+        router.replace(route.query.redirectUrl);
+      } else {
+        router.push("/");
+      }
+    };
+
+    onMounted(() => {
+      if (store.getters["base/isExistUser"]) {
+        gotoPage();
+      }
+    });
 
     return {
       param,
@@ -116,9 +133,9 @@ export default defineComponent({
       height: 100px;
       margin-bottom: 20px;
     }
-    .title{
-        font-size: 20px;
-    margin-bottom: 15px;
+    .title {
+      font-size: 20px;
+      margin-bottom: 15px;
     }
     .loginBtn {
       display: block;

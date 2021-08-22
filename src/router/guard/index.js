@@ -1,18 +1,18 @@
 import { createPermissionGuard } from '@/router/guard/permissionGuard.js'
-import { createBeforeEachGuard } from '@/router/guard/beforeEachGuard.js'
+import { createRouterEvnetGuard } from '@/router/guard/routerEvnetGuard.js'
 import { createErrorGuard } from '@/router/guard/errorGuard.js'
 
 
-export function setupRouterGuard(router) {
+export async function setupRouterGuard(router) {
     // createPageGuard(router);
     // createPageLoadingGuard(router);
     // createHttpGuard(router);
     // createScrollGuard(router);
     // createMessageGuard(router);
     // createProgressGuard(router);
-    createPermissionGuard(router);
+    await createPermissionGuard(router);
     createErrorGuard(router);
-    createBeforeEachGuard(router);
+    createRouterEvnetGuard(router);
     // createParamMenuGuard(router); // must after createPermissionGuard (menu has been built.)
     // createStateGuard(router);
 }

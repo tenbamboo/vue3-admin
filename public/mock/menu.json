@@ -1,5 +1,5 @@
 {
-    "list": [
+    "rootMenu": [
         {
             "icon": "el-icon-s-home",
             "index": "/home",
@@ -65,7 +65,6 @@
                     "index": "/errorDemo",
                     "title": "模拟异常页"
                 }
-
             ]
         },
         {
@@ -80,6 +79,10 @@
                 {
                     "index": "/pageTabsDemo",
                     "title": "标签页操作"
+                },
+                {
+                    "index": "/jsonFormDemo",
+                    "title": "jsonFormDemo"
                 }
             ]
         },
@@ -88,6 +91,17 @@
             "index": "/intro",
             "title": "引导页"
         }
-        
+    ],
+    "employeMenu": [
+        {
+            "icon": "el-icon-s-home",
+            "index": "/home",
+            "title": "系统首页"
+        },
+        {
+            "icon": "el-icon-s-order",
+            "index": "/baseForm",
+            "title": "基础表单"
+        }
     ]
 }

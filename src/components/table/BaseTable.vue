@@ -1,22 +1,22 @@
 <template>
-    <el-table border
-      v-bind="$attrs"
-      v-on="$attrs"
-      class="baseTable">
-      <slot></slot>
-    </el-table>
+  <el-table border
+    v-bind="$attrs"
+    v-on="$attrs"
+    class="baseTable">
+    <slot></slot>
+  </el-table>
 
-    <div class="pagination"
-      v-if="showPager">
-      <el-pagination background
-        layout="total, sizes, prev, pager, next, jumper"
-        :page-sizes="[ 10,20, 40, 60, 100]"
-        :current-page="props.pager.pageNo"
-        :page-size="props.pager.pageSize"
-        :total="props.pager.total"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"></el-pagination>
-    </div>
+  <div class="pagination"
+    v-if="showPager">
+    <el-pagination background
+      layout="total, sizes, prev, pager, next, jumper"
+      :page-sizes="[ 10,20, 40, 60, 100]"
+      :current-page="props.pager.pageNo"
+      :page-size="props.pager.pageSize"
+      :total="props.pager.total"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"></el-pagination>
+  </div>
 </template>
 <script>
 import { defineComponent } from "vue";

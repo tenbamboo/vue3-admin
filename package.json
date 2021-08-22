@@ -15,15 +15,15 @@
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
     "resize-observer-polyfill": "^1.5.1",
-    "vue": "3.1.5",
+    "vue": "3.2.4",
     "vue-router": "4.0.10",
     "vuedraggable": "^4.0.3",
     "vuex": "^4.0.2",
     "wangeditor": "^4.7.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.2.5",
-    "@vue/compiler-sfc": "^3.1.5",
+    "@vitejs/plugin-vue": "^1.4.0",
+    "@vue/compiler-sfc": "^3.2.4",
     "autoprefixer": "^10.3.1",
     "eslint": "^7.29.0",
     "eslint-config-airbnb-base": "^14.2.1",

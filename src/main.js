@@ -18,9 +18,7 @@ async function bootstrap() {
     setupRouter(app);
     setupStore(app);
     setupDirectives(app);
-    setupRouterGuard(router);
-
-
+    await setupRouterGuard(router);
     await router.isReady();
     app.mount('#app',true);
 }
