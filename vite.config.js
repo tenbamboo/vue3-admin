@@ -2,7 +2,7 @@ import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config/
+// https://vitejs.dev/config/1
 export default defineConfig({
   plugins: [vue()],
   server: {
