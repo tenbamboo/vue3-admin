@@ -17,7 +17,9 @@
             @keyup.enter="submitForm()">
 
             <template #prepend>
-              <i class="el-icon-user"></i>
+              <el-icon>
+                <user />
+              </el-icon>
             </template>
           </el-input>
         </el-form-item>
@@ -26,7 +28,9 @@
             v-model="param.password"
             @keyup.enter="submitForm()">
             <template #prepend>
-              <i class="el-icon-lock"></i>
+              <el-icon>
+                <key />
+              </el-icon>
             </template>
           </el-input>
         </el-form-item>
@@ -48,8 +52,10 @@ import { useStore } from "vuex";
 import { useRouter, useRoute } from "vue-router";
 import { ElMessage } from "element-plus";
 import { fetchLoginUserData } from "@/api/mock.js";
+import { User, Key } from "@element-plus/icons-vue";
 
 export default defineComponent({
+  components: { User, Key },
   setup() {
     const store = useStore();
     const router = useRouter();
