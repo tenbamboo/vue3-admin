@@ -11,14 +11,16 @@
         router>
         <template v-for="item in props.items">
           <template v-if="item.subs">
-            <el-submenu :index="item.index"
+            <el-sub-menu :index="item.index"
               :key="item.index">
               <template #title>
-                <i :class="item.icon"></i>
+                <el-icon>
+                  <map-location />
+                </el-icon>
                 <span>{{ item.title }}</span>
               </template>
               <template v-for="subItem in item.subs">
-                <el-submenu v-if="subItem.subs"
+                <el-sub-menu v-if="subItem.subs"
                   :index="subItem.index"
                   :key="subItem.index">
                   <template #title>{{ subItem.title }}</template>
@@ -26,18 +28,22 @@
                     :key="i"
                     :index="threeItem.index">
                     {{ threeItem.title }}</el-menu-item>
-                </el-submenu>
+                </el-sub-menu>
                 <el-menu-item v-else
                   :index="subItem.index"
                   :key="subItem.index">{{ subItem.title }}
                 </el-menu-item>
               </template>
-            </el-submenu>
+            </el-sub-menu>
           </template>
           <template v-else>
             <el-menu-item :index="item.index"
               :key="item.index">
-              <i :class="item.icon"></i>
+              <el-icon>
+                <el-icon>
+                  <map-location />
+                </el-icon>
+              </el-icon>
               <template #title>{{ item.title }}</template>
             </el-menu-item>
           </template>
@@ -48,11 +54,13 @@
 </template>
 
 <script>
-import { computed,defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
+import { MapLocation } from "@element-plus/icons-vue";
 
 export default defineComponent({
+  components: { MapLocation },
   props: {
     items: {
       type: Array,

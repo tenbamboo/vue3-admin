@@ -9,7 +9,9 @@
         <router-link :to="item.path"
           class="title">{{item.title}}</router-link>
         <span @click="closeTabs(index)">
-          <i class="el-icon-close"></i>
+          <el-icon>
+            <close />
+          </el-icon>
         </span>
       </li>
     </ul>
@@ -28,10 +30,12 @@
     </el-tabs> -->
     <div class="operArea">
       <el-dropdown @command="handleTabs">
-        <el-button size="mini"
+        <el-button size="small"
           type="primary">
           快捷操作
-          <i class="el-icon-arrow-down el-icon--right"></i>
+          <el-icon>
+            <arrow-down />
+          </el-icon>
         </el-button>
         <template #dropdown>
           <el-dropdown-menu size="small">
@@ -49,9 +53,10 @@ import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
 import { onBeforeRouteUpdate, useRoute } from "vue-router";
 import { useTabs } from "@/hooks/pageTabs/index";
-
+import { Close, ArrowDown } from "@element-plus/icons-vue";
 
 export default defineComponent({
+  components: { Close, ArrowDown },
   setup() {
     const route = useRoute();
     const isActive = (path) => path === route.fullPath;
@@ -62,7 +67,6 @@ export default defineComponent({
     const { closeAll, closeOther, closeTabs, setTabs } = useTabs();
 
     // 设置标签
-
 
     setTabs(route);
     onBeforeRouteUpdate((to) => {

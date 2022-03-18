@@ -5,10 +5,10 @@
 
       <div class="collapseSilderBtn"
         @click="collapseChage">
-        <i v-if="!collapse"
-          class="el-icon-s-fold"></i>
-        <i v-else
-          class="el-icon-s-unfold"></i>
+
+        <el-icon  v-if="!collapse"><fold /></el-icon>
+
+        <el-icon v-else><expand /></el-icon>
       </div>
       <div class="logo">{{appName}}</div>
     </div>
@@ -20,7 +20,7 @@
           :content="message?`有${message}条未读消息`:`我的待办`"
           placement="bottom">
           <router-link to="/baseTabs">
-            <i class="el-icon-bell"></i>
+          <el-icon class="el-icon-bell"><bell-filled /></el-icon>
           </router-link>
         </el-tooltip>
         <span class="badge"
@@ -35,7 +35,9 @@
           <div class="userAvator">
             <img src="/static/images/avator.png" />
             {{userName}}
-            <i class="el-icon-caret-bottom"></i>
+            <el-icon>
+              <caret-bottom />
+            </el-icon>
           </div>
         </span>
         <template #dropdown>
@@ -57,10 +59,13 @@
 import { computed, onMounted, defineComponent } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
+import { CaretBottom,BellFilled,Fold,Expand } from "@element-plus/icons-vue";
+
 // import { createNamespacedHelpers } from 'vuex'
 
 // const { mapState, mapActions,mapMutations } = createNamespacedHelpers('some/nested/module')
 export default defineComponent({
+  components: { CaretBottom, BellFilled,Fold,Expand },
   setup() {
     const store = useStore();
     const collapse = computed(() => store.state.layout.collapse);
